@@ -19,7 +19,8 @@ class JuegoZT2:
         Inicializa el estado inicial del juego, siempre inicia el jugador 1
         
         """
-        raise NotImplementedError("Hay que desarrollar este método, pues")
+        return tuple[81 * [0]]
+        #raise NotImplementedError("Hay que desarrollar este método, pues")
     
     def jugadas_legales(self, s, j):
         """
