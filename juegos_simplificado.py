@@ -19,16 +19,36 @@ class JuegoZT2:
         Inicializa el estado inicial del juego, siempre inicia el jugador 1
         
         """
-        return tuple[81 * [0]]
+        t = tuple(80 * [0])
+        t = t[:80] + (-2, -2)
+        return t
+        
         #raise NotImplementedError("Hay que desarrollar este método, pues")
-    
+
     def jugadas_legales(self, s, j):
         """
         Devuelve una lista con las jugadas legales para el jugador j
         en el estado s
-        
+
         """
-        raise NotImplementedError("Hay que desarrollar este método, pues")      
+        if j > 0:
+            if s[81] in {0, 1, 2, 9, 10, 11, 18, 19, 20}:
+                #Recorrer el arreglo 0, 1, 2, 9, 10, 11, 18, 19, 20 y regresar
+                #los valores != 0
+                #Si len(0, ..., 20) == 0 regresamos 
+                #return [posicion for posicion in range(80) if s[posicion] == 0]
+
+            # Se puede jugar en cualquier posición disponible
+            if s[81] == -2:
+                return [posicion for posicion in range(80) if s[posicion] == 0]
+        else:
+
+
+            # Se puede jugar en cualquier posición disponible
+            if s[82] == -2:
+                return [posicion for posicion in range(80) if s[posicion] == 0]
+
+        #raise NotImplementedError("Hay que desarrollar este método, pues")      
     
     def sucesor(self, s, a, j):
         """
