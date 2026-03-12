@@ -37,6 +37,7 @@ class tiktaktoe(js.JuegoZT2):
                    78, 79, 80}
         #Jugador 1
         #No es eficiente
+
         if j > 0:
             if s[81] in I_Arriba:
                 libres = [i for i in I_Arriba if s[i] == 0]
@@ -170,4 +171,17 @@ class tiktaktoe(js.JuegoZT2):
                     return [posicion for posicion in range(81) if s[posicion] == 0]
             
     def sucesor(self, s, a, j):
+        if s[a] != 0:
+            raise ValueError("Celda ocupada")
         
+        tablero = s[:81]
+        nuevo_tablero = tablero[:a] + (j,) + tablero[a+1:]
+
+        if j == 1:
+            jugada1 = a
+            jugada2 = s[82]
+        else:
+            jugada1 = s[81]
+            jugada2 = a
+
+        return nuevo_tablero + (jugada1, jugada2)
